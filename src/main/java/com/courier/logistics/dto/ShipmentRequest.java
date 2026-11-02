@@ -1,0 +1,11 @@
+package com.courier.logistics.dto;
+import com.courier.logistics.entity.PaymentMethod;
+import jakarta.validation.constraints.*; import java.time.LocalDate;
+public class ShipmentRequest {
+ @NotBlank private String source; @NotBlank private String destination; @NotNull @Positive private Double weight; private LocalDate deliveryDate;
+ @NotNull private Long customerId; @NotNull private Long warehouseId; @NotNull private Long deliveryAgentId;
+ private String packageType="STANDARD"; private Boolean fragile=false; @NotNull @Positive private Double length; @NotNull @Positive private Double breadth; @NotNull @Positive private Double height;
+ @PositiveOrZero private Double paymentAmount; private PaymentMethod paymentMethod=PaymentMethod.COD;
+ private String initialLocation;
+ public String getSource(){return source;} public void setSource(String v){source=v;} public String getDestination(){return destination;} public void setDestination(String v){destination=v;} public Double getWeight(){return weight;} public void setWeight(Double v){weight=v;} public LocalDate getDeliveryDate(){return deliveryDate;} public void setDeliveryDate(LocalDate v){deliveryDate=v;} public Long getCustomerId(){return customerId;} public void setCustomerId(Long v){customerId=v;} public Long getWarehouseId(){return warehouseId;} public void setWarehouseId(Long v){warehouseId=v;} public Long getDeliveryAgentId(){return deliveryAgentId;} public void setDeliveryAgentId(Long v){deliveryAgentId=v;} public String getPackageType(){return packageType;} public void setPackageType(String v){packageType=v;} public Boolean getFragile(){return fragile;} public void setFragile(Boolean v){fragile=v;} public Double getLength(){return length;} public void setLength(Double v){length=v;} public Double getBreadth(){return breadth;} public void setBreadth(Double v){breadth=v;} public Double getHeight(){return height;} public void setHeight(Double v){height=v;} public Double getPaymentAmount(){return paymentAmount;} public void setPaymentAmount(Double v){paymentAmount=v;} public PaymentMethod getPaymentMethod(){return paymentMethod;} public void setPaymentMethod(PaymentMethod v){paymentMethod=v;} public String getInitialLocation(){return initialLocation;} public void setInitialLocation(String v){initialLocation=v;}
+}

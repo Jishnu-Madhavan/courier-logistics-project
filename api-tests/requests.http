@@ -1,0 +1,53 @@
+### Create customer
+POST http://localhost:8080/api/customers
+Content-Type: application/json
+
+{"name":"Asha Nair","email":"asha@example.com","contact":"9876543210","address":"Kasaragod, Kerala"}
+
+### List customers
+GET http://localhost:8080/api/customers
+
+### Find customer by email
+GET http://localhost:8080/api/customers/by-email?email=asha@example.com
+
+### Create warehouse (contact must be globally unique and exactly 10 digits)
+POST http://localhost:8080/api/warehouses
+Content-Type: application/json
+
+{"name":"Central Warehouse","location":"Bengaluru","capacity":500,"contact":"0801234567"}
+
+### Create delivery agent
+POST http://localhost:8080/api/delivery-agents
+Content-Type: application/json
+
+{"name":"Rahul K","contact":"9876501234","vehicleNo":"KA01AB1234","availabilityStatus":"AVAILABLE","rating":4.5}
+
+### Find agents with rating >= 4
+GET http://localhost:8080/api/delivery-agents/by-min-rating?rating=4
+
+### Create shipment (first create customer/warehouse/agent and use their returned IDs)
+POST http://localhost:8080/api/shipments
+Content-Type: application/json
+
+{"source":"Kasaragod, Kerala","destination":"Bengaluru, Karnataka","weight":2.5,"deliveryDate":"2026-10-30","customerId":1,"warehouseId":1,"deliveryAgentId":1,"packageType":"BOX","fragile":false,"length":20,"breadth":15,"height":10,"paymentMethod":"UPI","initialLocation":"Kasaragod"}
+
+### List shipments
+GET http://localhost:8080/api/shipments
+
+### Update shipment status (replace ID)
+PATCH http://localhost:8080/api/shipments/1/status
+Content-Type: application/json
+
+{"status":"IN_TRANSIT","location":"Mangaluru Transit Hub"}
+
+### List shipment tracking history
+GET http://localhost:8080/api/shipments/1/history
+
+### Find packages by type
+GET http://localhost:8080/api/packages/by-type?packageType=BOX
+
+### Find payment records by customer
+GET http://localhost:8080/api/payments/by-customer/1
+
+### List all tracking history
+GET http://localhost:8080/api/tracking-history
